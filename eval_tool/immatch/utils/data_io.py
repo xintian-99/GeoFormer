@@ -49,13 +49,13 @@ def load_gray_scale_tensor(im_path, device, imsize=None, dfactor=1, value_to_sca
 def load_gray_scale_tensor_cv(im_path, device, imsize=None, dfactor=1, enhanced=False, value_to_scale=min, aspan=False):
     # Used for LoFTR
     
-    # Check if file exists
-    if not os.path.exists(im_path):
-        raise FileNotFoundError(f"Image not found: {im_path}")
+    # # Check if file exists
+    # if not os.path.exists(im_path):
+    #     raise FileNotFoundError(f"Image not found: {im_path}")
     
     im = cv2.imread(im_path, cv2.IMREAD_GRAYSCALE)
-    if im is None:
-        print(f"⚠️ OpenCV failed to load {im_path}. Trying PIL instead...")
+    # if im is None:
+    #     print(f"⚠️ OpenCV failed to load {im_path}. Trying PIL instead...")
 
     ho, wo = im.shape
     wt, ht, scale = resize_im(wo, ho, imsize=imsize, dfactor=dfactor, value_to_scale=value_to_scale, aspan=aspan)

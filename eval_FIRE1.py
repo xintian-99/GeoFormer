@@ -1,12 +1,37 @@
 import argparse
 from argparse import Namespace
 import os
-
+import numpy as np
+import re
 
 import eval_tool.immatch as immatch
 from eval_tool.immatch.utils.data_io import lprint
 import eval_tool.immatch.utils.fire_helper as helper
 from eval_tool.immatch.utils.model_helper import parse_model_config
+from model.full_model import GeoFormer as GeoFormer_
+
+def save_keypoints(kpts1, kpts2, save_dir, image_name):
+    """
+    Save keypoints in .npy and .txt formats.
+
+    :param kpts1: Keypoints from Image 1
+    :param kpts2: Keypoints from Image 2
+    :param save_dir: Directory where files should be saved
+    :param image_name: Base name for the output file (derived from image filename)
+    """
+    save_path_npy = os.path.join(save_dir, f"{image_name}_keypoints.npy")
+    save_path_txt = os.path.join(save_dir, f"{image_name}_keypoints.txt")
+
+    # Concatenate keypoints for saving (each row: x1, y1, x2, y2)
+    keypoints = np.hstack((kpts1, kpts2))  # Shape: (N, 4)
+
+    # Save as .npy
+    np.save(save_path_npy, keypoints)
+
+    # Save as .txt (formatted as x1, y1, x2, y2)
+    np.savetxt(save_path_txt, keypoints, fmt="%.6f", delimiter=" ")
+
+    print(f"✅ Keypoints saved: \n  - {save_path_npy}\n  - {save_path_txt}")
 
 def eval_fire(
         root_dir,
@@ -14,7 +39,7 @@ def eval_fire(
         task='homography',
         h_solver='degensac',
         ransac_thres=2,
-        match_thres=0.8,
+        match_thres=None,
         odir='outputs/fire',
         save_npy=True,
         print_out=False,
@@ -57,7 +82,6 @@ def eval_fire(
             model = immatch.__dict__[class_name](args)
 
             matcher = lambda im1, im2: model.match_pairs(im1, im2)
-            model.data
 
             # Init result save path (for matching results)
             result_npy = None
@@ -86,6 +110,23 @@ def eval_fire(
                 debug=debug,
             )
             
+                # Save keypoints after matching
+            for pair in match_pairs:
+                # Use regex to extract "P01_1", "A03_2", "S12_5", etc.
+                match = re.search(r'([PAS]\d+_\d+)_\d+', pair)  
+                if match:
+                    im1_name = match.group(1)  # Extracts "P01_1", "A03_2", "S12_5"
+                else:
+                    print(f"⚠️ Warning: Could not extract image name from {pair}")
+                    continue  # Skip if it fails
+                im1_path = os.path.join(im_dir, f"{im1_name}.jpg")
+                im2_path = os.path.join(im_dir, f"{im1_name.replace('_1', '_2')}.jpg")  # Replace _1 with _2
+
+                # Perform matching
+                matches, kpts1, kpts2, scores = model.match_pairs(im1_path, im2_path)
+                
+                # Save keypoints
+                save_keypoints(kpts1, kpts2, result_dir, im1_name)
             
         log.close()
         return mauc
@@ -106,7 +147,7 @@ if __name__ == '__main__':
         '--h_solver', type=str, default='cv',
         choices=['degensac', 'cv']
     )
-    parser.add_argument('--ransac_thres', type=float, default=30)
+    parser.add_argument('--ransac_thres', type=float, default=15)
     parser.add_argument('--save_npy', action='store_true', default=True)
     parser.add_argument('--print_out', action='store_true', default=True)
 
@@ -121,4 +162,5 @@ if __name__ == '__main__':
         save_npy=args.save_npy,
         print_out=args.print_out
     )
+
 

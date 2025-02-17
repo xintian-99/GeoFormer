@@ -121,7 +121,8 @@ class GeoFormer(nn.Module):
         #                        None)
         # plt.imshow(show)
         # plt.show()
-        # return data
+        
+        return data
 
     def load_state_dict(self, state_dict, *args, **kwargs):
         for k in list(state_dict.keys()):

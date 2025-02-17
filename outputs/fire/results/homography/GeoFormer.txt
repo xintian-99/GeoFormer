@@ -29,3 +29,158 @@ Hest solver=cv est_failed=0 ransac_thres=15 inlier_rate=0.98
 Matching thres: 0.2  Save to: None
 
 >>>>Eval hpatches: task=homography method=GeoFormer_geoformer_noms scale_H=True rthres=15
+
+>>>> Method=GeoFormer Default config: {'class': 'GeoFormer', 'match_threshold': 0.2, 'imsize': 768, 'no_match_upscale': True, 'ckpt': 'saved_ckpt/geoformer.ckpt', 'ransac_thres': 15} Thres: [0.2]
+Matching thres: 0.2  Save to: None
+
+>>>>Eval hpatches: task=homography method=GeoFormer_geoformer_noms scale_H=True rthres=15
+>>Finished, pairs=0 match_failed=133 matches=0.0 match_time=nans
+==== Homography Estimation ====
+Hest solver=cv est_failed=133 ransac_thres=15 inlier_rate=0.00
+
+>>>> Method=GeoFormer Default config: {'class': 'GeoFormer', 'match_threshold': 0.2, 'imsize': 768, 'no_match_upscale': True, 'ckpt': 'saved_ckpt/geoformer.ckpt', 'ransac_thres': 15} Thres: [0.2]
+Matching thres: 0.2  Save to: None
+
+>>>>Eval hpatches: task=homography method=GeoFormer_geoformer_noms scale_H=True rthres=15
+>>Finished, pairs=0 match_failed=133 matches=0.0 match_time=nans
+==== Homography Estimation ====
+Hest solver=cv est_failed=133 ransac_thres=15 inlier_rate=0.00
+
+>>>> Method=GeoFormer Default config: {'class': 'GeoFormer', 'match_threshold': 0.2, 'imsize': 768, 'no_match_upscale': True, 'ckpt': 'saved_ckpt/geoformer.ckpt', 'ransac_thres': 15} Thres: [0.2]
+Matching thres: 0.2  Save to: None
+
+>>>>Eval hpatches: task=homography method=GeoFormer_geoformer_noms scale_H=True rthres=15
+>>Finished, pairs=0 match_failed=133 matches=0.0 match_time=nans
+==== Homography Estimation ====
+Hest solver=cv est_failed=133 ransac_thres=15 inlier_rate=0.00
+
+>>>> Method=GeoFormer Default config: {'class': 'GeoFormer', 'match_threshold': 0.2, 'imsize': 768, 'no_match_upscale': True, 'ckpt': 'saved_ckpt/geoformer.ckpt', 'ransac_thres': 15} Thres: [0.2]
+Matching thres: 0.2  Save to: None
+
+>>>>Eval hpatches: task=homography method=GeoFormer_geoformer_noms scale_H=True rthres=15
+>>Finished, pairs=0 match_failed=133 matches=0.0 match_time=nans
+==== Homography Estimation ====
+Hest solver=cv est_failed=133 ransac_thres=15 inlier_rate=0.00
+
+>>>> Method=GeoFormer Default config: {'class': 'GeoFormer', 'match_threshold': 0.2, 'imsize': 768, 'no_match_upscale': True, 'ckpt': 'saved_ckpt/geoformer.ckpt', 'ransac_thres': 15} Thres: [0.2]
+Matching thres: 0.2  Save to: None
+
+>>>>Eval hpatches: task=homography method=GeoFormer_geoformer_noms scale_H=True rthres=15
+>>Finished, pairs=0 match_failed=133 matches=0.0 match_time=nans
+==== Homography Estimation ====
+Hest solver=cv est_failed=133 ransac_thres=15 inlier_rate=0.00
+
+>>>> Method=GeoFormer Default config: {'class': 'GeoFormer', 'match_threshold': 0.2, 'imsize': 768, 'no_match_upscale': True, 'ckpt': 'saved_ckpt/geoformer.ckpt', 'ransac_thres': 15} Thres: [0.2]
+
+>>>> Method=GeoFormer Default config: {'class': 'GeoFormer', 'match_threshold': 0.2, 'imsize': 768, 'no_match_upscale': True, 'ckpt': 'saved_ckpt/geoformer.ckpt', 'ransac_thres': 15} Thres: [0.2]
+Matching thres: 0.2  Save to: .\outputs/fire\cache\GeoFormer_geoformer_noms.im768.m0.2.npy
+
+>>>>Eval hpatches: task=homography method=GeoFormer_geoformer_noms scale_H=True rthres=15
+>>Finished, pairs=0 match_failed=133 matches=0.0 match_time=nans
+==== Homography Estimation ====
+Hest solver=cv est_failed=133 ransac_thres=15 inlier_rate=0.00
+
+>>>> Method=GeoFormer Default config: {'class': 'GeoFormer', 'match_threshold': 0.2, 'imsize': 768, 'no_match_upscale': True, 'ckpt': 'saved_ckpt/geoformer.ckpt', 'ransac_thres': 15} Thres: [0.2]
+Matching thres: 0.2  Save to: .\outputs/fire\cache\GeoFormer_geoformer_noms.im768.m0.2.npy
+
+>>>>Eval hpatches: task=homography method=GeoFormer_geoformer_noms scale_H=True rthres=15
+>>Finished, pairs=0 match_failed=133 matches=0.0 match_time=nans
+==== Homography Estimation ====
+Hest solver=cv est_failed=133 ransac_thres=15 inlier_rate=0.00
+
+>>>> Method=GeoFormer Default config: {'class': 'GeoFormer', 'match_threshold': 0.2, 'imsize': 768, 'no_match_upscale': True, 'ckpt': 'saved_ckpt/geoformer.ckpt', 'ransac_thres': 15} Thres: [0.2]
+Matching thres: 0.2  Save to: .\outputs/fire\cache\GeoFormer_geoformer_noms.im768.m0.2.npy
+
+>>>>Eval hpatches: task=homography method=GeoFormer_geoformer_noms scale_H=True rthres=15
+>>Finished, pairs=0 match_failed=133 matches=0.0 match_time=nans
+==== Homography Estimation ====
+Hest solver=cv est_failed=133 ransac_thres=15 inlier_rate=0.00
+
+>>>> Method=GeoFormer Default config: {'class': 'GeoFormer', 'match_threshold': 0.2, 'imsize': 768, 'no_match_upscale': True, 'ckpt': 'saved_ckpt/geoformer.ckpt', 'ransac_thres': 15} Thres: [0.2]
+Matching thres: 0.2  Save to: None
+
+>>>> Method=GeoFormer Default config: {'class': 'GeoFormer', 'match_threshold': 0.2, 'imsize': 768, 'no_match_upscale': True, 'ckpt': 'saved_ckpt/geoformer.ckpt', 'ransac_thres': 15} Thres: [0.2]
+
+>>>> Method=GeoFormer Default config: {'class': 'GeoFormer', 'match_threshold': 0.2, 'imsize': 768, 'no_match_upscale': True, 'ckpt': 'saved_ckpt/geoformer.ckpt', 'ransac_thres': 15} Thres: [0.2]
+Matching thres: 0.2  Save to: .\outputs/fire\cache\GeoFormer_geoformer_noms.im768.m0.2.npy
+
+>>>>Eval hpatches: task=homography method=GeoFormer_geoformer_noms scale_H=True rthres=15
+>>Finished, pairs=0 match_failed=133 matches=0.0 match_time=nans
+==== Homography Estimation ====
+Hest solver=cv est_failed=133 ransac_thres=15 inlier_rate=0.00
+
+>>>> Method=GeoFormer Default config: {'class': 'GeoFormer', 'match_threshold': 0.2, 'imsize': 768, 'no_match_upscale': True, 'ckpt': 'saved_ckpt/geoformer.ckpt', 'ransac_thres': 15} Thres: [0.2]
+Matching thres: 0.2  Save to: .\outputs/fire\cache\GeoFormer_geoformer_noms.im768.m0.2.npy
+
+>>>>Eval hpatches: task=homography method=GeoFormer_geoformer_noms scale_H=True rthres=15
+>>Finished, pairs=0 match_failed=133 matches=0.0 match_time=nans
+==== Homography Estimation ====
+Hest solver=cv est_failed=133 ransac_thres=15 inlier_rate=0.00
+
+>>>> Method=GeoFormer Default config: {'class': 'GeoFormer', 'match_threshold': 0.2, 'imsize': 768, 'no_match_upscale': True, 'ckpt': 'saved_ckpt/geoformer.ckpt', 'ransac_thres': 15} Thres: [0.2]
+Matching thres: 0.2  Save to: None
+
+>>>>Eval hpatches: task=homography method=GeoFormer_geoformer_noms scale_H=True rthres=15
+>>Finished, pairs=0 match_failed=133 matches=0.0 match_time=nans
+==== Homography Estimation ====
+Hest solver=cv est_failed=133 ransac_thres=15 inlier_rate=0.00
+
+>>>> Method=GeoFormer Default config: {'class': 'GeoFormer', 'match_threshold': 0.2, 'imsize': 768, 'no_match_upscale': True, 'ckpt': 'saved_ckpt/geoformer.ckpt', 'ransac_thres': 15} Thres: [0.2]
+Matching thres: 0.2  Save to: .\outputs/fire\cache\GeoFormer_geoformer_noms.im768.m0.2.npy
+
+>>>>Eval hpatches: task=homography method=GeoFormer_geoformer_noms scale_H=True rthres=15
+>>Finished, pairs=133 match_failed=0 matches=4858.0 match_time=0.30s
+==== Homography Estimation ====
+Hest solver=cv est_failed=0 ransac_thres=15 inlier_rate=0.98
+
+>>>> Method=GeoFormer Default config: {'class': 'GeoFormer', 'match_threshold': 0.2, 'imsize': 768, 'no_match_upscale': True, 'ckpt': 'saved_ckpt/geoformer.ckpt', 'ransac_thres': 15} Thres: [0.2]
+Matching thres: 0.2  Save to: .\outputs/fire\cache\GeoFormer_geoformer_noms.im768.m0.2.npy
+
+>>>>Eval hpatches: task=homography method=GeoFormer_geoformer_noms scale_H=True rthres=15
+>>Finished, pairs=133 match_failed=0 matches=4858.0 match_time=0.30s
+==== Homography Estimation ====
+Hest solver=cv est_failed=0 ransac_thres=15 inlier_rate=0.98
+
+>>>> Method=GeoFormer Default config: {'class': 'GeoFormer', 'match_threshold': 0.2, 'imsize': 768, 'no_match_upscale': True, 'ckpt': 'saved_ckpt/geoformer.ckpt', 'ransac_thres': 15} Thres: [0.2]
+Matching thres: 0.2  Save to: .\outputs/fire\cache\GeoFormer_geoformer_noms.im768.m0.2.npy
+
+>>>>Eval hpatches: task=homography method=GeoFormer_geoformer_noms scale_H=True rthres=15
+>>Finished, pairs=133 match_failed=0 matches=4858.0 match_time=0.30s
+==== Homography Estimation ====
+Hest solver=cv est_failed=0 ransac_thres=15 inlier_rate=0.98
+
+>>>> Method=GeoFormer Default config: {'class': 'GeoFormer', 'match_threshold': 0.2, 'imsize': 768, 'no_match_upscale': True, 'ckpt': 'saved_ckpt/geoformer.ckpt', 'ransac_thres': 15} Thres: [0.2]
+Matching thres: 0.2  Save to: .\outputs/fire\cache\GeoFormer_geoformer_noms.im768.m0.2.npy
+
+>>>> Method=GeoFormer Default config: {'class': 'GeoFormer', 'match_threshold': 0.2, 'imsize': 768, 'no_match_upscale': True, 'ckpt': 'saved_ckpt/geoformer.ckpt', 'ransac_thres': 15} Thres: [0.2]
+Matching thres: 0.2  Save to: .\outputs/fire\cache\GeoFormer_geoformer_noms.im768.m0.2.npy
+
+>>>>Eval hpatches: task=homography method=GeoFormer_geoformer_noms scale_H=True rthres=15
+
+>>>> Method=GeoFormer Default config: {'class': 'GeoFormer', 'match_threshold': 0.2, 'imsize': 768, 'no_match_upscale': True, 'ckpt': 'saved_ckpt/geoformer.ckpt', 'ransac_thres': 15} Thres: [0.2]
+Matching thres: 0.2  Save to: .\outputs/fire\cache\GeoFormer_geoformer_noms.im768.m0.2.npy
+
+>>>>Eval hpatches: task=homography method=GeoFormer_geoformer_noms scale_H=True rthres=15
+
+>>>> Method=GeoFormer Default config: {'class': 'GeoFormer', 'match_threshold': 0.2, 'imsize': 768, 'no_match_upscale': True, 'ckpt': 'saved_ckpt/geoformer.ckpt', 'ransac_thres': 15} Thres: [0.2]
+Matching thres: 0.2  Save to: .\outputs/fire\cache\GeoFormer_geoformer_noms.im768.m0.2.npy
+
+>>>>Eval hpatches: task=homography method=GeoFormer_geoformer_noms scale_H=True rthres=15
+
+>>>> Method=GeoFormer Default config: {'class': 'GeoFormer', 'match_threshold': 0.2, 'imsize': 768, 'no_match_upscale': True, 'ckpt': 'saved_ckpt/geoformer.ckpt', 'ransac_thres': 15} Thres: [0.2]
+Matching thres: 0.2  Save to: .\outputs/fire\cache\GeoFormer_geoformer_noms.im768.m0.2.npy
+
+>>>>Eval hpatches: task=homography method=GeoFormer_geoformer_noms scale_H=True rthres=15
+>>Finished, pairs=133 match_failed=0 matches=4858.0 match_time=0.30s
+==== Homography Estimation ====
+Hest solver=cv est_failed=0 ransac_thres=15 inlier_rate=0.98
+
+>>>> Method=GeoFormer Default config: {'class': 'GeoFormer', 'match_threshold': 0.2, 'imsize': 768, 'no_match_upscale': True, 'ckpt': 'saved_ckpt/geoformer.ckpt', 'ransac_thres': 15} Thres: [0.2]
+Matching thres: 0.2  Save to: .\outputs/fire\cache\GeoFormer_geoformer_noms.im768.m0.2.npy
+
+>>>>Eval hpatches: task=homography method=GeoFormer_geoformer_noms scale_H=True rthres=15
+>>Finished, pairs=133 match_failed=0 matches=4858.0 match_time=0.32s
+==== Homography Estimation ====
+Hest solver=cv est_failed=0 ransac_thres=15 inlier_rate=0.98
+
+>>>> Method=GeoFormer Default config: {'class': 'GeoFormer', 'match_threshold': 0.2, 'imsize': 768, 'no_match_upscale': True, 'ckpt': 'saved_ckpt/geoformer.ckpt', 'ransac_thres': 15} Thres: [0.2]
