@@ -89,6 +89,19 @@ class FineMatching2(nn.Module):
         b_ids, i_ids = torch.where(mask_v)
         j_ids = all_j_ids[b_ids, i_ids]
         mconf = conf_matrix[b_ids, i_ids, j_ids]
+
+        # Sort by confidence (descending)
+        sorted_indices = torch.argsort(mconf, descending=True)
+
+        # Keep only the top 1000 matches
+        top_k = min(1000, sorted_indices.shape[0])
+        sorted_indices = sorted_indices[:top_k]
+
+        b_ids = b_ids[sorted_indices]
+        i_ids = i_ids[sorted_indices]
+        j_ids = j_ids[sorted_indices]
+        mconf = mconf[sorted_indices]
+
         fine_matches = {'b_ids': b_ids, 'i_ids': i_ids, 'j_ids': j_ids}
         # 4. Update with matches in original image resolution
         coarse_scale = data['hw0_i'][0] / data['hw0_c'][0]
