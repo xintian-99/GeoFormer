@@ -100,6 +100,7 @@ class GeoFormer(nn.Module):
         # 5. match fine-level
         self.fine_matching(feat_f0_unfold, feat_f1_unfold, data)
 
+        # #plot
         # kpts1 = data['mkpts0_f'].cpu().numpy()
         # kpts2 = data['mkpts1_f'].cpu().numpy()
         # gray1, gray2 = data['image0'], data['image1']
@@ -114,13 +115,13 @@ class GeoFormer(nn.Module):
         # kp1 = [cv2.KeyPoint(int(k[0]), int(k[1]), 30) for k in kp1]
         # matches = [cv2.DMatch(_trainIdx=i, _queryIdx=i, _distance=1, _imgIdx=-1) for i in
         #            range(len(kp0))]
-        #
+        
         # show = cv2.drawMatches((gray1.cpu()[0][0].numpy() * 255).astype(np.uint8), kp0,
         #                        (gray2.cpu()[0][0].numpy() * 255).astype(np.uint8), kp1, matches,
         #                        None)
         # plt.imshow(show)
         # plt.show()
-        return data
+        # return data
 
     def load_state_dict(self, state_dict, *args, **kwargs):
         for k in list(state_dict.keys()):

@@ -95,8 +95,17 @@ class GeoFormer():
 
         if cpu:
             self.change_deivce(tmp_device)
+                    # Print keypoints
+
+        
+        
+
+        # Save keypoints
+        np.save("keypoints_image1.npy", kpts1)
+        np.save("keypoints_image2.npy", kpts2)
 
         return matches, kpts1, kpts2, scores
+    
 
 g = GeoFormer(640, 0.2, no_match_upscale=False, ckpt='saved_ckpt/geoformer.ckpt', device='cuda')
-g.match_pairs('/data3/ljz/matching/data/datasets/copy/query/106_2.jpg', '/data3/ljz/matching/data/datasets/copy/refer/106_1.jpg', is_draw=True)
+g.match_pairs('E:/Github/GeoFormer/data/datasets/FIRE/Images/A01_1.jpg', 'E:/Github/GeoFormer/data/datasets/FIRE/Images/A01_2.jpg', is_draw=True)
