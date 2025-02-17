@@ -3,6 +3,7 @@ import torch
 import numpy as np
 import cv2
 import os
+import matplotlib.pyplot as plt
 
 from model.loftr_src.loftr.utils.cvpr_ds_config import default_cfg
 from model.full_model import GeoFormer as GeoFormer_
@@ -105,6 +106,24 @@ class GeoFormer():
         np.save("keypoints_image2.npy", kpts2)
 
         return matches, kpts1, kpts2, scores
+
+def draw_keypoints(image_path, keypoints, title="Keypoints", num_points=5):
+    image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
+    image_color = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
+
+    for i, k in enumerate(keypoints[:num_points]):
+        x, y = int(k[0]), int(k[1])  # 假设是 (x, y)
+        cv2.circle(image_color, (x, y), 5, (0, 255, 0), -1)  # 绿色点
+        cv2.putText(image_color, str(i), (x + 5, y - 5), cv2.FONT_HERSHEY_SIMPLEX, 
+                    0.5, (0, 255, 0), 1, cv2.LINE_AA)
+
+    plt.figure(figsize=(6, 6))
+    plt.imshow(image_color[:, :, ::-1])  # OpenCV 是 BGR，Matplotlib 需要 RGB
+    plt.title(title)
+    plt.axis("off")
+    plt.show()
+    
+
     
 def process_fire_images(image_dir, output_dir, geoformer):
     if not os.path.exists(output_dir):
@@ -131,23 +150,29 @@ def process_fire_images(image_dir, output_dir, geoformer):
             #print the ketpoint number
             # print(f'Keypoints for {base_name}: {len(kpts1)}')
             print(f'Keypoints for {base_name}: {len(kpts1)}')
-            
             # Save keypoints in different formats
             base_output_path = os.path.join(output_dir, base_name)
             # np.save(f'{base_output_path}_kpts1.npy', kpts1)
             # np.save(f'{base_output_path}_kpts2.npy', kpts2)
             # np.save(f'{base_output_path}_matches.npy', matches)
-            # np.savetxt(f'{base_output_path}_kpts1.txt', kpts1, fmt='%.6f')
-            # np.savetxt(f'{base_output_path}_kpts2.txt', kpts2, fmt='%.6f')
-            # np.savetxt(f'{base_output_path}_matches.txt', matches, fmt='%.6f')
+            # np.savetxt(f'{base_output_path}_1.txt', kpts1, fmt='%.6f')
+            # np.savetxt(f'{base_output_path}_2.txt', kpts2, fmt='%.6f')
+            np.savetxt(f'{base_output_path}_1_2.txt', matches, fmt='%.6f')
+            #save to csv and only keep 6 decimals
+            # np.savetxt(f'{base_output_path}_1.csv', kpts1, delimiter=",", fmt='%.6f')
+            # np.savetxt(f'{base_output_path}_2.csv', kpts2, delimiter=",", fmt='%.6f')
+            np.savetxt(f'{base_output_path}_1_2.csv', matches, delimiter=",", fmt='%.6f')
+
             # print(f'Saved keypoints for {base_name}')
+            # draw_keypoints(im1_path, kpts1, title=f"{base_name} - Image 1 Keypoints")
+            # draw_keypoints(im2_path, kpts2, title=f"{base_name} - Image 2 Keypoints")
 
 
 if __name__ == "__main__":
     image_dir = "E:/Github/GeoFormer/data/datasets/FIRE/Images/"
     output_dir = "E:/Github/GeoFormer/keypoints/fire/"
     
-    geoformer = GeoFormer(640, 0.5, no_match_upscale=False, ckpt='saved_ckpt/geoformer.ckpt', device='cuda')
+    geoformer = GeoFormer(640, 0.3, no_match_upscale=False, ckpt='saved_ckpt/geoformer.ckpt', device='cuda')
     process_fire_images(image_dir, output_dir, geoformer)
 
 
