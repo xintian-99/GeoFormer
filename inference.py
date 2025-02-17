@@ -2,6 +2,7 @@ from argparse import Namespace
 import torch
 import numpy as np
 import cv2
+import os
 
 from model.loftr_src.loftr.utils.cvpr_ds_config import default_cfg
 from model.full_model import GeoFormer as GeoFormer_
@@ -97,8 +98,7 @@ class GeoFormer():
             self.change_deivce(tmp_device)
                     # Print keypoints
 
-        
-        
+         
 
         # Save keypoints
         np.save("keypoints_image1.npy", kpts1)
@@ -106,6 +106,50 @@ class GeoFormer():
 
         return matches, kpts1, kpts2, scores
     
+def process_fire_images(image_dir, output_dir, geoformer):
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+    
+    images = sorted(os.listdir(image_dir))
+    pairs = {}
+    
+    for img in images:
+        if img.endswith('.jpg'):
+            base_name = img[:3]  # Extract first three characters
+            suffix = img[3:]
+            if suffix == '_1.jpg':
+                pairs.setdefault(base_name, [None, None])[0] = img
+            elif suffix == '_2.jpg':
+                pairs.setdefault(base_name, [None, None])[1] = img
+    
+    for base_name, (im1, im2) in pairs.items():
+        if im1 and im2:
+            im1_path = os.path.join(image_dir, im1)
+            im2_path = os.path.join(image_dir, im2)
+            # print(f'Processing pair: {im1}, {im2}')
+            matches, kpts1, kpts2, scores = geoformer.match_pairs(im1_path, im2_path)
+            #print the ketpoint number
+            # print(f'Keypoints for {base_name}: {len(kpts1)}')
+            print(f'Keypoints for {base_name}: {len(kpts1)}')
+            
+            # Save keypoints in different formats
+            base_output_path = os.path.join(output_dir, base_name)
+            # np.save(f'{base_output_path}_kpts1.npy', kpts1)
+            # np.save(f'{base_output_path}_kpts2.npy', kpts2)
+            # np.save(f'{base_output_path}_matches.npy', matches)
+            # np.savetxt(f'{base_output_path}_kpts1.txt', kpts1, fmt='%.6f')
+            # np.savetxt(f'{base_output_path}_kpts2.txt', kpts2, fmt='%.6f')
+            # np.savetxt(f'{base_output_path}_matches.txt', matches, fmt='%.6f')
+            # print(f'Saved keypoints for {base_name}')
 
-g = GeoFormer(640, 0.2, no_match_upscale=False, ckpt='saved_ckpt/geoformer.ckpt', device='cuda')
-g.match_pairs('E:/Github/GeoFormer/data/datasets/FIRE/Images/A01_1.jpg', 'E:/Github/GeoFormer/data/datasets/FIRE/Images/A01_2.jpg', is_draw=True)
+
+if __name__ == "__main__":
+    image_dir = "E:/Github/GeoFormer/data/datasets/FIRE/Images/"
+    output_dir = "E:/Github/GeoFormer/keypoints/fire/"
+    
+    geoformer = GeoFormer(640, 0.5, no_match_upscale=False, ckpt='saved_ckpt/geoformer.ckpt', device='cuda')
+    process_fire_images(image_dir, output_dir, geoformer)
+
+
+# g = GeoFormer(640, 0.2, no_match_upscale=False, ckpt='saved_ckpt/geoformer.ckpt', device='cuda')
+# g.match_pairs('E:/Github/GeoFormer/data/datasets/FIRE/Images/A01_1.jpg', 'E:/Github/GeoFormer/data/datasets/FIRE/Images/A01_2.jpg', is_draw=True)
